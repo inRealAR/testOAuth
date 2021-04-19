@@ -1,0 +1,173 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.example.bitsandpizza"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    def lifecycle_version = '2.3.0'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-core-ktx:$lifecycle_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    def appcompat = '1.2.0'
+    implementation "androidx.appcompat:appcompat:$appcompat"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxjava:2.1.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.0"
+
+    implementation 'com.google.dagger:dagger:2.33'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.33'
+
+
+    // Provides ARCore Session and related resources.
+    implementation 'com.google.ar:core:1.15.0'
+    // Provides ArFragment, and other UX resources.
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.15.0'
+
+    implementation 'com.google.ar.sceneform:core:1.15.0'
+    implementation 'com.android.support:multidex:1.0.3'
+
+//    // Hilt dependencies
+//    implementation "com.google.dagger:hilt-android:$hilt_version"
+//    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+//    annotationProcessor "com.google.dagger:hilt-compiler:$hilt_version"
+}
+
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/soups/tom_yam/tom_yam.obj', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/models/tom_yam.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/tom_yam')
+
+sceneform.asset('sampledata/soups/krem_soup/krem_soup.obj', // 'Source Asset Path' specified during import.
+        'default',                    // 'Material Path' specified during import.
+        'sampledata/models/krem_soup.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/krem_soup')
+
+sceneform.asset('sampledata/salads/standart_salad/standart_salad.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/standart_salad.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/standart_salad')
+
+sceneform.asset('sampledata/salads/potato_salad/potato_salad.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/potato_salad.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/potato_salad')
+
+sceneform.asset('sampledata/drinks/capuccino/capuccino.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/capuccino.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/capuccino')
+
+sceneform.asset('sampledata/drinks/coffee/coffee.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/coffee.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/coffee')
+
+sceneform.asset('sampledata/drinks/tea/tea.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/tea.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/tea')
+
+sceneform.asset('sampledata/desserts/bisquit_cake/Desserts.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/Desserts.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/bisquit_cake')
+
+sceneform.asset('sampledata/desserts/piece_of_the_cake/piece_of_the_cake.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/piece_of_the_cake.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/piece_of_the_cake')
+
+sceneform.asset('sampledata/desserts/pudding/pudding.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/pudding.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/pudding')
+
+sceneform.asset('sampledata/hot_meals/cheeseburger/cheeseburger.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/cheeseburger.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/cheeseburger')
+
+sceneform.asset('sampledata/hot_meals/chicken_mit_potato/chicken_mit_potato.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/chicken_mit_potato.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/chicken_mit_potato')
+
+sceneform.asset('sampledata/hot_meals/chicken_wings/chicken_wings.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/chicken_wings.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/chicken_wings')
+
+sceneform.asset('sampledata/hot_meals/pizza/pizza.obj', // 'Source Asset Path' specified during import.
+        'default',// 'Material Path' specified during import.
+        'sampledata/models/pizza.sfa', // '.sfa Output Path' specified during import.
+        'src/main/res/raw/pizza')
+//
+//
+//sceneform.asset('sampledata/hot_meals/pepperoni/pizza.obj', // 'Source Asset Path' specified during import.
+//        'default',// 'Material Path' specified during import.
+//        'sampledata/models/pizza.sfb', // '.sfa Output Path' specified during import.
+//        'src/main/res/raw/pizza')
+//
+//sceneform.asset('sampledata/drinks/coffee.obj', // 'Source Asset Path' specified during import.
+//        'default',// 'Material Path' specified during import.
+//        'sampledata/models/coffee.sfb', // '.sfa Output Path' specified during import.
+//        'src/main/res/raw/coffee')
+//
+//
+
+//sceneform.asset('sampledata/desserts/chocolate_cake/chocolate_cake.obj', // 'Source Asset Path' specified during import.
+//        'default',// 'Material Path' specified during import.
+//        'sampledata/models/chocolate_cake.sfb', // '.sfa Output Path' specified during import.
+//        'src/main/res/raw/chocolate_cake')
+//
+
+
+
+//sceneform.asset('sampledata\\meringue/dessert2.obj', // 'Source Asset Path' specified during import.
+//        'default',// 'Material Path' specified during import.
+//        'sampledata/models/dessert2.sfb', // '.sfa Output Path' specified during import.
+//        'src/main/res/raw/chocolate_meringue')
